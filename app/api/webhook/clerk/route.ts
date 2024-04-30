@@ -112,7 +112,7 @@ import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions';
 // A Clerk kliens példány létrehozása
 const clerkClient = createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY });
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request, res: NextApiResponse) {
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
     if (!WEBHOOK_SECRET) {
         return res.status(500).json({ error: 'WEBHOOK_SECRET is missing. Please configure it in your environment variables.' });
